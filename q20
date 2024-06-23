@@ -1,0 +1,24 @@
+//Write a C /Python program using stream oriented client using TCP port no. 3456.
+import socket
+
+def start_client(server_host='localhost', server_port=3456):
+    client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    client_socket.connect((server_host, server_port))
+    
+    try:
+        message = 'This is a test message from the client'
+        print(f"Sending: {message}")
+        
+        message_length = len(message)
+        client_socket.sendall(message_length.to_bytes(4, 'big') + message.encode())
+        
+        data_length = client_socket.recv(4)
+        data_length = int.from_bytes(data_length, 'big')
+        
+        data = client_socket.recv(data_length).decode()
+        print(f"Received: {data}")
+    finally:
+        client_socket.close()
+
+if __name__ == "__main__":
+    start_client()
