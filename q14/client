@@ -1,0 +1,20 @@
+//Write a C /Python program that creates a UDP client-server pair that sends and receives data using UDP sockets.  
+import socket
+
+def udp_client():
+    client_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+    server_address = ('localhost', 12345)
+    message = "Hello, UDP server!"
+
+    try:
+        client_socket.sendto(message.encode(), server_address)
+
+        response, _ = client_socket.recvfrom(1024)
+        print(f"Received response from server: {response.decode()}")
+    
+    finally:
+        client_socket.close()
+
+if __name__ == "__main__":
+    udp_client()
