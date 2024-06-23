@@ -1,0 +1,20 @@
+//How can you perform a port scan using Python?
+import socket
+
+def port_scan(target, port_range):
+    print(f"Scanning {target} for open ports in range {port_range[0]}-{port_range[1]}")
+    
+    for port in range(port_range[0], port_range[1] + 1):
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.settimeout(1) 
+        
+        result = s.connect_ex((target, port))
+        
+        if result == 0:
+            print(f"Port {port}: OPEN")
+        s.close()
+
+if __name__ == "__main__":
+    target_host = "example.com"
+    port_range = (20, 1024)
+    port_scan(target_host, port_range)
