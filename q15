@@ -19,3 +19,4 @@ odd_parity = calculate_parity(binary_string, 'odd')
 print(f"Original binary string: {binary_string}")
 print(f"With even parity: {even_parity}")
 print(f"With odd parity: {odd_parity}")
+
