@@ -20,3 +20,4 @@ binary_string_with_odd_parity = "10101011"   # Odd parity
 
 print(f"Checking even parity for {binary_string_with_even_parity}: {check_parity(binary_string_with_even_parity, 'even')}")
 print(f"Checking odd parity for {binary_string_with_odd_parity}: {check_parity(binary_string_with_odd_parity, 'odd')}")
+
