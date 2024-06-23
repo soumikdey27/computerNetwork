@@ -1,0 +1,29 @@
+//Write a C /Python program for counter generator.
+def counter_generator(start=0, step=1):
+    count = start
+    while True:
+        yield count
+        count += step
+
+def main():
+    try:
+        start = int(input("Enter the starting value of the counter: "))
+        step = int(input("Enter the step value for the counter: "))
+    except ValueError:
+        print("Invalid input. Please enter integer values.")
+        return
+
+    counter = counter_generator(start=start, step=step)
+
+    try:
+        num_values = int(input("Enter the number of counter values to generate: "))
+    except ValueError:
+        print("Invalid input. Please enter an integer value.")
+        return
+
+    print(f"Generating {num_values} values starting from {start} with step {step}:")
+    for _ in range(num_values):
+        print(next(counter), end=" ")
+
+if __name__ == "__main__":
+    main()
