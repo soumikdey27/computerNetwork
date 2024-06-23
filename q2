@@ -1,0 +1,2 @@
+//Use the ipconfig /all command on a Windows machine to display detailed information about all network interfaces, including their MAC addresses.
+ipconfig/all
