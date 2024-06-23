@@ -1,0 +1,21 @@
+//Write a C /Python program to implement the parity generator code from a given pattern.
+def calculate_parity(bit_string, parity_type='even'):
+
+    ones_count = bit_string.count('1')
+    
+    if parity_type == 'even':
+        parity_bit = '1' if ones_count % 2 != 0 else '0'
+    elif parity_type == 'odd':
+        parity_bit = '1' if ones_count % 2 == 0 else '0'
+    else:
+        raise ValueError("Invalid parity type. Use 'even' or 'odd'.")
+    
+    return bit_string + parity_bit
+
+binary_string = "1010101"
+even_parity = calculate_parity(binary_string, 'even')
+odd_parity = calculate_parity(binary_string, 'odd')
+
+print(f"Original binary string: {binary_string}")
+print(f"With even parity: {even_parity}")
+print(f"With odd parity: {odd_parity}")
