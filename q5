@@ -1,0 +1,2 @@
+//Use netstat -e command to show statistics about your network connection.
+netstat -e
