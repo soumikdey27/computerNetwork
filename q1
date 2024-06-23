@@ -18,3 +18,4 @@ if __name__ == "__main__":
     target_host = "example.com"
     port_range = (20, 1024)
     port_scan(target_host, port_range)
+
