@@ -1,0 +1,19 @@
+//Develop a C /Python code snippet to create a TCP server that listens for incoming connections on port 8080 and prints "Connection accepted" when a client connects.
+import socket
+
+def Main():
+    host = ""
+    port = 8080
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.bind((host, port))
+    print("Socket binded to port", port)
+    s.listen(5)
+    print("Socket is listening")
+
+    while True:
+        c, addr = s.accept()
+        print("Connection accepted")
+        c.close()
+
+if __name__ == "__main__":
+    Main()
