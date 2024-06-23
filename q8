@@ -1,0 +1,2 @@
+//Use the netsh command to display the configuration of a network interface, including its MAC address, IP address, subnet mask, and default gateway.
+netsh interface ipv4 show config name="wi-fi"
