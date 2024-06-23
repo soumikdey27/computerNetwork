@@ -1,0 +1,22 @@
+//Write a C /Python program to implement the parity checker code from a given pattern.
+def check_parity(bit_string_with_parity, parity_type='even'):
+
+    bit_string = bit_string_with_parity[:-1]
+    parity_bit = bit_string_with_parity[-1]
+    
+    ones_count = bit_string.count('1')
+    
+    if parity_type == 'even':
+        is_correct = (ones_count % 2 == 0 and parity_bit == '0') or (ones_count % 2 != 0 and parity_bit == '1')
+    elif parity_type == 'odd':
+        is_correct = (ones_count % 2 == 0 and parity_bit == '1') or (ones_count % 2 != 0 and parity_bit == '0')
+    else:
+        raise ValueError("Invalid parity type. Use 'even' or 'odd'.")
+    
+    return is_correct
+
+binary_string_with_even_parity = "10101010"  # Even parity
+binary_string_with_odd_parity = "10101011"   # Odd parity
+
+print(f"Checking even parity for {binary_string_with_even_parity}: {check_parity(binary_string_with_even_parity, 'even')}")
+print(f"Checking odd parity for {binary_string_with_odd_parity}: {check_parity(binary_string_with_odd_parity, 'odd')}")
